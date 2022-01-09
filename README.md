@@ -131,5 +131,7 @@ Things you may want to cover:
 | purchase_id             | references| null: false, foreign_key: true  |
  
 
+ 
+
 ## Association
 - belongs_to :purchases
