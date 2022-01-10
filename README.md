@@ -32,7 +32,7 @@ Things you may want to cover:
 | email                 | string | null: false, foreign_key: true |
 | encrypted_password    | string | null: false                    |
 | nickname              | string | null: false                    |
-| birthday_id           | date   | null: false                    |
+| birthday              | date   | null: false                    |
 | first_name            | string | null: false                    |
 | last_name             | string | null: false                    |
 | first_name_jpn        | string | null: false                    |
