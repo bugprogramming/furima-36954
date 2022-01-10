@@ -27,16 +27,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column                | Type   | Options                        |
-| --------------------- | ------ | ------------------------------ |
-| email                 | string | null: false, foreign_key: true |
-| encrypted_password    | string | null: false                    |
-| nickname              | string | null: false                    |
-| birthday              | date   | null: false                    |
-| first_name            | string | null: false                    |
-| last_name             | string | null: false                    |
-| first_name_jpn        | string | null: false                    |
-| last_name_jpn         | string | null: false                    |
+| Column                | Type   | Options                   |
+| --------------------- | ------ | --------------------------|
+| email                 | string | null: false, unique: true |
+| encrypted_password    | string | null: false               |
+| nickname              | string | null: false               |
+| birthday              | date   | null: false               |
+| first_name            | string | null: false               |
+| last_name             | string | null: false               |
+| first_name_jpn        | string | null: false               |
+| last_name_jpn         | string | null: false               |
 
 ## Association
 - has_many :tweets
@@ -71,9 +71,9 @@ Things you may want to cover:
 
 
 ## Association
-- belongs_to : user
-- belongs_to : tweet
-- has_one    : address
+- belongs_to :user
+- belongs_to :tweet
+- has_one    :address
 
 ## addresses テーブル
 
