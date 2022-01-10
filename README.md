@@ -39,12 +39,12 @@ Things you may want to cover:
 | last_name_jpn         | string | null: false               |
 
 ## Association
-- has_many :tweets
+- has_many :images
 - has_many :purchases
 
 
 
-## tweets テーブル
+## images テーブル
 
 | Column       | Type      | Options                         |
 | -------------| --------- | --------------------------------|
@@ -66,13 +66,13 @@ Things you may want to cover:
 
 | Column             | Type       | Options                         |
 | ------------------ | ---------- | ------------------------------- |
-| tweet              | references | null: false, foreign_key: true  |
+| image              | references | null: false, foreign_key: true  |
 | user               | references | null: false, foreign_key: true  |
 
 
 ## Association
 - belongs_to :user
-- belongs_to :tweet
+- belongs_to :image
 - has_one    :address
 
 ## addresses テーブル
