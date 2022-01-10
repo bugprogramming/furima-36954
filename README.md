@@ -27,19 +27,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column                | Type   | Options     |
-| --------------------- | ------ | ----------- |
-| email                 | string | null: false |
-| encrypted_password    | string | null: false |
-| nick_name             | string | null: false |
-| year_id               | integer| null: false |
-| month_id              | integer| null: false |
-| date_id               | integer| null: false |
-| password_confirmation | string | null: false |
-| first_name            | string | null: false |
-| last_name             | string | null: false |
-| first_name_jpn        | string | null: false |
-| last_name_jpn         | string | null: false |
+| Column                | Type   | Options                        |
+| --------------------- | ------ | ------------------------------ |
+| email                 | string | null: false, foreign_key: true |
+| encrypted_password    | string | null: false                    |
+| nickname              | string | null: false                    |
+| birthday_id           | date   | null: false                    |
+| first_name            | string | null: false                    |
+| last_name             | string | null: false                    |
+| first_name_jpn        | string | null: false                    |
+| last_name_jpn         | string | null: false                    |
 
 ## Association
 - has_many :tweets
@@ -51,19 +48,19 @@ Things you may want to cover:
 
 | Column       | Type      | Options                         |
 | -------------| --------- | --------------------------------|
-| text         | text      | null: false                     |
+| explain      | text      | null: false                     |
 | tweet_name   | string    | null: false                     |
 | price        | integer   | null: false                     |
 | category_id  | integer   | null: false                     |
 | condition_id | integer   | null: false                     |
 | area_id      | integer   | null: false                     |
-| data_id      | integer   | null: false                     |
+| delivery_id  | integer   | null: false                     |
 | send_style_id| integer   | null: false                     |
 | user         | references| null: false, foreign_key: true  |
 
 ## Association
 - belongs_to :user
-- has_one    : purchase
+- has_one :purchase
 
 ## purchases テーブル
 
@@ -84,7 +81,7 @@ Things you may want to cover:
 | ----------------------- | --------- | ------------------------------- |
 | phone_number            | string    | null: false                     |
 | post_code               | string    | null: false                     |
-| prefecture_id           | integer   | null: false                     |
+| area_id                 | integer   | null: false                     |
 | municipalities          | string    | null: false                     |
 | address_number          | string    | null: false                     |
 | building                | string    |                                 |
