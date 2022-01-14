@@ -11,7 +11,7 @@ class User < ApplicationRecord
  validates :last_name_jpn, presence: true
  validates :first_name_jpn, presence: true
  validates :last_name, presence: true
- validates :first_name_name, presence: true  
+ validates :first_name, presence: true  
  validates :nickname, presence: true 
  validates :email, presence: true
 end
