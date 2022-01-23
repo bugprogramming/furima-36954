@@ -36,10 +36,22 @@ RSpec.describe User, type: :model do
       end
 
       it "パスワードは半角英数混合でなければ登録できない" do
-       @user.password = 'cdjsp３２'
+       @user.password = 'cdjspdih'
        @user.valid?
        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
+
+      it "パスワードは半角英数混合でなければ登録できない" do
+        @user.password = '22749554'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+       end
+
+       it "パスワードは半角英数混合でなければ登録できない" do
+        @user.password = 'sxrjkl２４'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+       end
 
       it "passwordが空では登録できない" do
         @user.password = ''
@@ -48,10 +60,15 @@ RSpec.describe User, type: :model do
       end
      
       it "お名前（全角）は全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
-      @user.first_name = 'taku'
-      @user.last_name = 'matsumoto'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Last name 全角のみで入力して下さい", "First name 全角のみで入力して下さい")
+        @user.first_name = 'taku'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name 全角のみで入力して下さい", "First name 全角のみで入力して下さい")
+      end
+
+      it "お名前（全角）は全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
+        @user.last_name = 'matsumoto'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name 全角のみで入力して下さい", "First name 全角のみで入力して下さい")
       end
 
       it "お名前カナ（全角）は全角（カタカナ）でなければ登録できない" do
