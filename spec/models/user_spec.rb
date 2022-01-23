@@ -62,22 +62,26 @@ RSpec.describe User, type: :model do
       it "お名前（全角）は全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
         @user.first_name = 'taku'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name 全角のみで入力して下さい", "First name 全角のみで入力して下さい")
+        expect(@user.errors.full_messages).to include("First name 全角のみで入力して下さい")
       end
 
       it "お名前（全角）は全角（漢字・ひらがな・カタカナ）でなければ登録できない" do
         @user.last_name = 'matsumoto'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name 全角のみで入力して下さい", "First name 全角のみで入力して下さい")
+        expect(@user.errors.full_messages).to include("Last name 全角のみで入力して下さい")
       end
 
       it "お名前カナ（全角）は全角（カタカナ）でなければ登録できない" do
       @user.first_name_jpn = '拓'
-      @user.last_name_jpn = '松本'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Last name jpn 全角カタカナのみで入力して下さい", "First name jpn 全角カタカナのみで入力して下さい")
+      expect(@user.errors.full_messages).to include("First name jpn 全角カタカナのみで入力して下さい")
       end
-      
+
+      it "お名前カナ（全角）は全角（カタカナ）でなければ登録できない" do
+        @user.last_name_jpn = '松本'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name jpn 全角カタカナのみで入力して下さい")
+        end
 
       it "birthdayが空では登録できない" do
         @user.birthday = ''
